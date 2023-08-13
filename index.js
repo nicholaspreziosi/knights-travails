@@ -97,11 +97,110 @@ function knightMoves(start, end) {
     path = path.prev;
   }
   // log count and moves
-  console.log(`You made it in ${count - 1} moves! Here's your path:`);
+  pathText(count);
   for (const move of rev.reverse()) {
-    console.log(move);
+    displayMoves(move);
   }
 }
 
 // test program
-knightMoves([0, 0], [7, 7]);
+window.onload = function () {
+  gameboardDisplay();
+  gameboardColor();
+  let arr = [];
+
+  const square = document.querySelectorAll("#outer-div div div");
+
+  for (let i = 0; i < square.length; i++) {
+    square[i].addEventListener("mouseover", () => {
+      highlightSquare(arr, i, square);
+      square[i].addEventListener("mouseout", () => {
+        gameboardColor();
+      });
+    });
+    square[i].addEventListener("click", () => {
+      callKnightMoves(arr, i);
+    });
+  }
+};
+
+function refreshPage() {
+  window.location.reload();
+}
+
+function gameboardDisplay() {
+  const outerDiv = document.getElementById("outer-div");
+  for (let i = 0; i < 8; i++) {
+    const row = document.createElement("div");
+    row.setAttribute("id", `Row-${i}`);
+    for (let j = 0; j < 8; j++) {
+      const column = document.createElement("div");
+      column.classList.add(`Column-${j}`);
+      column.style.backgroundColor = "white";
+      row.appendChild(column);
+      outerDiv.appendChild(row);
+    }
+  }
+}
+
+function gameboardColor() {
+  const square = document.querySelectorAll("#outer-div div div");
+  for (let i = 0; i < square.length; i++) {
+    const x = parseInt(square[i].parentNode.id.slice(-1));
+    const y = parseInt(square[i].classList.value.slice(-1));
+    square[i].style.backgroundColor = "white";
+    if (y % 2 === 0 && x % 2 !== 0) {
+      square[i].style.backgroundColor = "black";
+    }
+    if (x % 2 === 0 && y % 2 !== 0) {
+      square[i].style.backgroundColor = "black";
+    }
+  }
+}
+
+function highlightSquare(arr, index, square) {
+  if (arr.length === 0) {
+    square[index].style.backgroundColor = "#a5e0a5";
+  } else if (arr.length === 1) {
+    square[index].style.backgroundColor = "#f09a9a";
+  }
+}
+
+function displayMoves(move) {
+  const knightCount = document.querySelectorAll(".img");
+  const number = knightCount.length;
+  const rowName = `#Row-${move[0].toString()}`;
+  const row = document.querySelector(`${rowName}`);
+  const columnName = `.Column-${move[1].toString()}`;
+  const column = row.querySelectorAll(`${columnName}`);
+  const img = document.createElement("img");
+  img.src = "chess-knight.svg";
+  img.classList.add("img");
+  const count = document.createElement("p");
+  count.textContent = number;
+  column[0].appendChild(img);
+  column[0].appendChild(count);
+}
+
+function detectClick(i) {
+  const square = document.querySelectorAll("#outer-div div div");
+  const coordinates = [];
+  const x = parseInt(square[i].parentNode.id.slice(-1));
+  const y = parseInt(square[i].classList.value.slice(-1));
+  coordinates.push(x);
+  coordinates.push(y);
+  return coordinates;
+}
+
+function callKnightMoves(arr, index) {
+  const startPoint = detectClick(index);
+  arr.push(startPoint);
+  if (arr.length === 2) {
+    knightMoves(arr[0], arr[1]);
+  }
+}
+
+function pathText(count) {
+  const pathText = document.querySelector("#path-text");
+  pathText.textContent = `You made it in ${count - 1} moves!`;
+}

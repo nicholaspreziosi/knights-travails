@@ -1,0 +1,88 @@
+body {
+    margin: 0px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background: rgba(128, 128, 128, 0.5);
+    margin: 12px;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#title {
+    font-size: 4rem;
+    margin: 12px;
+}
+
+#outer-div {
+    display: grid;
+    width: 800px;
+    height: 800px;
+    margin: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    place-self: center;
+}
+
+#outer-div > div {
+    width: 100px;
+    height: 100px;
+}
+
+#outer-div > div > div {
+    color: #808080;
+    border: 1px solid black;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.img {
+    max-width: 60px;
+}
+
+#outer-div > div > div > p {
+    width: 20px;
+    height: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: auto;
+}
+
+form {
+    margin: 24px;
+}
+
+button {
+    cursor: pointer;
+    border: 2px solid black;
+    font-size: 1rem;
+    background-color: white;
+    border-radius: 24px;
+    padding: 12px;
+}
+
+#clear-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 12px;
+}
+
+
+
+#path-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: red;
+    font-weight: 300;
+    text-align: center;
+    margin: 12px;
+}
