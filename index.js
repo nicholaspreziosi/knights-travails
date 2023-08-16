@@ -90,39 +90,17 @@ function knightMoves(start, end) {
   let path = search(beginning, finish);
   // follow the prev property until null (aka start point), push the values to new array, and count the moves
   let rev = [];
-  let count = 0;
   while (path != null) {
     rev.push(path.value);
-    count++;
     path = path.prev;
   }
-  // log count and moves
-  pathText(count);
+  // return array of moves
+  let movesArr = [];
   for (const move of rev.reverse()) {
-    displayMoves(move);
+    movesArr.push(move);
   }
+  return movesArr;
 }
-
-// test program
-window.onload = function () {
-  gameboardDisplay();
-  gameboardColor();
-  let arr = [];
-
-  const square = document.querySelectorAll("#outer-div div div");
-
-  for (let i = 0; i < square.length; i++) {
-    square[i].addEventListener("mouseover", () => {
-      highlightSquare(arr, i, square);
-      square[i].addEventListener("mouseout", () => {
-        gameboardColor();
-      });
-    });
-    square[i].addEventListener("click", () => {
-      callKnightMoves(arr, i);
-    });
-  }
-};
 
 function refreshPage() {
   window.location.reload();
@@ -141,6 +119,7 @@ function gameboardDisplay() {
       outerDiv.appendChild(row);
     }
   }
+  gameboardColor();
 }
 
 function gameboardColor() {
@@ -196,7 +175,11 @@ function callKnightMoves(arr, index) {
   const startPoint = detectClick(index);
   arr.push(startPoint);
   if (arr.length === 2) {
-    knightMoves(arr[0], arr[1]);
+    let moves = knightMoves(arr[0], arr[1]);
+    pathText(moves.length);
+    for (let i = 0; i < moves.length; i++) {
+      displayMoves(moves[i]);
+    }
   }
 }
 
@@ -204,3 +187,22 @@ function pathText(count) {
   const pathText = document.querySelector("#path-text");
   pathText.textContent = `You made it in ${count - 1} moves!`;
 }
+
+// test program
+window.onload = function () {
+  gameboardDisplay();
+  let arr = [];
+
+  const square = document.querySelectorAll("#outer-div div div");
+  for (let i = 0; i < square.length; i++) {
+    square[i].addEventListener("mouseover", () => {
+      highlightSquare(arr, i, square);
+      square[i].addEventListener("mouseout", () => {
+        gameboardColor();
+      });
+    });
+    square[i].addEventListener("click", () => {
+      callKnightMoves(arr, i);
+    });
+  }
+};
