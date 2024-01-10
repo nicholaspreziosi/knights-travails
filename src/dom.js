@@ -56,7 +56,7 @@ const displayMoves = (move) => {
   const columnName = `.Column-${move[1].toString()}`;
   const column = row.querySelectorAll(`${columnName}`);
   const img = document.createElement('img');
-  img.src = 'src/images/chess-knight.svg';
+  img.src = 'src/images/knight.svg';
   img.classList.add('img');
   const count = document.createElement('p');
   count.textContent = number;
