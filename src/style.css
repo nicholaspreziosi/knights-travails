@@ -9,7 +9,6 @@ body {
   margin: 0px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   background: rgba(128, 128, 128, 0.5);
-  margin: 12px;
 }
 
 #container {
@@ -31,6 +30,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   place-self: center;
+  filter: drop-shadow(0 0 0.5rem black);
 }
 
 #outer-div > div {
@@ -90,4 +90,94 @@ button {
   font-weight: 300;
   text-align: center;
   margin: 12px;
+}
+
+@media (max-width: 800px) and (min-width: 601px) {
+  #outer-div {
+    width: 600px;
+    height: 600px;
+  }
+
+  #outer-div > div {
+    width: 75px;
+    height: 75px;
+  }
+
+  #outer-div > div > div {
+    width: 75px;
+    height: 75px;
+  }
+
+  .img {
+    width: 30px;
+  }
+
+  #outer-div > div > div > p {
+    font-size: 1.5rem;
+  }
+
+  #path-text {
+    font-size: 1.5rem;
+    margin: 24px 12px;
+  }
+}
+
+@media (max-width: 600px) and (min-width: 401px) {
+  #outer-div {
+    width: 400px;
+    height: 400px;
+  }
+
+  #outer-div > div {
+    width: 50px;
+    height: 50px;
+  }
+
+  #outer-div > div > div {
+    width: 50px;
+    height: 50px;
+  }
+
+  .img {
+    width: 30px;
+  }
+
+  #outer-div > div > div > p {
+    font-size: 1rem;
+  }
+
+  #path-text {
+    font-size: 1.25rem;
+    margin: 24px 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  #outer-div {
+    width: 320px;
+    height: 320px;
+  }
+
+  #outer-div > div {
+    width: 40px;
+    height: 40px;
+  }
+
+  #outer-div > div > div {
+    width: 40px;
+    height: 40px;
+  }
+
+  .img {
+    width: 24px;
+  }
+
+  #outer-div > div > div > p {
+    font-size: 0.8rem;
+  }
+
+  #path-text {
+    font-size: 1.25rem;
+    margin: 24px 12px;
+  }
 }
