@@ -2,6 +2,7 @@ import knightMoves from './data';
 
 // cache DOM
 const text = document.querySelector('#path-text');
+const instructions = document.querySelector('#instructions');
 
 // create chessboard
 const gameboardDisplay = () => {
@@ -41,9 +42,9 @@ const gameboardColor = () => {
 const highlightSquare = (arr, index, square) => {
   const curSquare = square[index];
   if (arr.length === 0) {
-    curSquare.style.backgroundColor = '#a5e0a5';
+    curSquare.style.backgroundColor = 'rgba(0, 255, 0, 0.75)';
   } else if (arr.length === 1) {
-    curSquare.style.backgroundColor = '#f09a9a';
+    curSquare.style.backgroundColor = 'rgba(225, 0, 0, 0.75)';
   }
 };
 
@@ -77,6 +78,7 @@ const detectClick = (i) => {
 
 // display text stating the number of moves
 const pathText = (count) => {
+  instructions.textContent = '';
   text.textContent = `You made it in ${count - 1} moves!`;
 };
 

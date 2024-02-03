@@ -7,42 +7,60 @@
 
 body {
   margin: 0px;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  background: rgba(128, 128, 128, 0.5);
+  font-family:
+    Ubuntu,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Roboto,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  background: white;
+  padding: 24px;
+  color: black;
 }
 
 #container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  max-width: 680px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 18px;
+  margin-bottom: 18px;
 }
 
 #title {
-  font-size: 4rem;
-  margin: 12px;
+  font-size: 3rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
 }
 
 #outer-div {
   display: grid;
-  width: 800px;
-  height: 800px;
+  width: 680px;
+  height: 680px;
   margin: auto;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   place-self: center;
-  filter: drop-shadow(0 0 0.5rem black);
+  filter: drop-shadow(0 0 0.2rem black);
 }
 
 #outer-div > div {
-  width: 100px;
-  height: 100px;
+  width: 85px;
+  height: 85px;
 }
 
 #outer-div > div > div {
   color: #808080;
-  border: 1px solid black;
-  width: 100px;
-  height: 100px;
+  border: none;
+  width: 85px;
+  height: 85px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,134 +68,232 @@ body {
 }
 
 .img {
-  max-width: 60px;
+  max-width: 36px;
+}
+
+#outer-div > div > div {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 6px;
+  transition: background-color 0.25s ease;
 }
 
 #outer-div > div > div > p {
-  width: 20px;
-  height: 20px;
   font-size: 2rem;
-  font-weight: bold;
-  margin: auto;
+  font-weight: 500;
+  margin: 0;
 }
 
 form {
-  margin: 24px;
+  margin: 0;
 }
 
 button {
   cursor: pointer;
-  border: 2px solid black;
-  font-size: 1rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+  border: none;
   background-color: white;
-  border-radius: 24px;
   padding: 12px;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+button:hover {
+  background-color: rgba(225, 0, 0, 0.9);
+  color: white;
 }
 
 #clear-form {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 12px;
+  margin: 0px;
 }
 
-#path-text {
+#path-text,
+#instructions {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
-  color: red;
+  color: black;
   font-weight: 300;
   text-align: center;
-  margin: 12px;
+  margin: 12px 12px;
+  max-width: 680px;
+  text-align: center;
+}
+
+#path-text {
+  font-size: 2.25rem;
+}
+
+#instructions {
+  font-size: 1.25rem;
+}
+
+#path-text:empty,
+#instructions:empty {
+  padding: 0;
+  margin: 0;
+}
+
+#path-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  margin-bottom: 18px;
 }
 
 @media (max-width: 800px) and (min-width: 601px) {
+  body {
+    padding: 18px;
+  }
+
+  #container {
+    max-width: 560px;
+  }
+
   #outer-div {
-    width: 600px;
-    height: 600px;
+    width: 560px;
+    height: 560px;
   }
 
   #outer-div > div {
-    width: 75px;
-    height: 75px;
+    width: 70px;
+    height: 70px;
   }
 
   #outer-div > div > div {
-    width: 75px;
-    height: 75px;
+    width: 70px;
+    height: 70px;
   }
 
   .img {
-    width: 30px;
+    width: 25px;
   }
 
   #outer-div > div > div > p {
     font-size: 1.5rem;
   }
 
+  #path-text,
+  #instructions {
+    margin: 12px 12px;
+    max-width: 560px;
+  }
+
   #path-text {
-    font-size: 1.5rem;
-    margin: 24px 12px;
+    font-size: 2rem;
+  }
+
+  #instructions {
+    font-size: 1.2rem;
   }
 }
 
 @media (max-width: 600px) and (min-width: 401px) {
+  body {
+    padding: 12px;
+  }
+
+  #title {
+    font-size: 2rem;
+  }
+
+  #container {
+    max-width: 360px;
+  }
+
   #outer-div {
-    width: 400px;
-    height: 400px;
+    width: 360px;
+    height: 360px;
   }
 
   #outer-div > div {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
   }
 
   #outer-div > div > div {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
   }
 
   .img {
-    width: 30px;
+    width: 16px;
   }
 
   #outer-div > div > div > p {
     font-size: 1rem;
   }
 
+  #path-text,
+  #instructions {
+    margin: 12px 12px;
+    max-width: 360px;
+  }
+
   #path-text {
-    font-size: 1.25rem;
-    margin: 24px 12px;
+    font-size: 1.5rem;
+  }
+
+  #instructions {
+    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 400px) {
+  body {
+    padding: 12px;
+  }
+
+  #title {
+    font-size: 2rem;
+  }
+
+  #container {
+    max-width: 280px;
+  }
+
   #outer-div {
-    width: 320px;
-    height: 320px;
+    width: 280px;
+    height: 280px;
   }
 
   #outer-div > div {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
   }
 
   #outer-div > div > div {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
   }
 
   .img {
-    width: 24px;
+    width: 16px;
   }
 
   #outer-div > div > div > p {
     font-size: 0.8rem;
   }
 
+  #path-text,
+  #instructions {
+    margin: 12px 12px;
+    max-width: 280px;
+  }
+
   #path-text {
     font-size: 1.25rem;
-    margin: 24px 12px;
+  }
+
+  #instructions {
+    font-size: 1rem;
   }
 }
