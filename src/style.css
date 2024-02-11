@@ -123,6 +123,7 @@ button:hover {
   text-align: center;
   margin: 12px 12px;
   max-width: 680px;
+  height: 50px;
   text-align: center;
 }
 
@@ -138,6 +139,7 @@ button:hover {
 #instructions:empty {
   padding: 0;
   margin: 0;
+  height: 0;
 }
 
 #path-text-container {
@@ -185,6 +187,7 @@ button:hover {
   #instructions {
     margin: 12px 12px;
     max-width: 560px;
+    height: 75px;
   }
 
   #path-text {
@@ -236,6 +239,7 @@ button:hover {
   #instructions {
     margin: 12px 12px;
     max-width: 360px;
+    height: 85px;
   }
 
   #path-text {
@@ -287,6 +291,7 @@ button:hover {
   #instructions {
     margin: 12px 12px;
     max-width: 280px;
+    height: 80px;
   }
 
   #path-text {
