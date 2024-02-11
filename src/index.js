@@ -15,6 +15,7 @@ const arr = [];
 
 // cache DOM
 const square = document.querySelectorAll('#outer-div div div');
+const reset = document.querySelector('#clear');
 
 // bind events
 for (let i = 0; i < square.length; i += 1) {
@@ -28,3 +29,8 @@ for (let i = 0; i < square.length; i += 1) {
     callKnightMoves(arr, i);
   });
 }
+
+reset.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.location.reload();
+});
