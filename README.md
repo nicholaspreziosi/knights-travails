@@ -4,7 +4,6 @@ Knights Travails is an app intended to calculate and display the minimum number 
 
 <p align="center">
 <img 
-    style="width: 40%;"
     src="https://www.nicholaspreziosi.com/build/images/knightstravails.jpg" 
     alt="Knights Travails Preview">
 </img>
