@@ -3,8 +3,8 @@
 Knights Travails is an app intended to calculate and display the minimum number of moves and route a chess piece would need to get from a start point to an end point on a chess board. This app uses a custom graph like data structure and breadth first search to calculate the knight's moves. Creating this project allowed me to become comfortable using data structures, which I hope to utilize further in my future projects.
 
 <p align="center">
-<img 
-    src="https://www.nicholaspreziosi.com/build/images/knightstravails.jpg" 
+<img
+    src="./src/images/knightstravails.jpeg"
     alt="Knights Travails Preview">
 </img>
 </p>
